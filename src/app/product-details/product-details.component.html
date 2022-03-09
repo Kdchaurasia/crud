@@ -1,0 +1,25 @@
+<table class="table" border="2px">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">product name</th>
+      <th scope="col">product description</th>
+      <th scope="col">product price</th>
+      <th scope="col">product ImageUrl</th>
+      <th scope="col" colspan="2">Update/Delete</th>
+      
+    </tr>
+    <tr *ngFor="let r of result.products">
+      <td>{{r._id}}</td>
+      <td>{{r.productName}}</td>
+      <td>{{r.productDescription}}</td>
+      <td>{{r.productPrice}}</td>
+      <td><img src="{{r.productImageURL}}" alt="" width="200" height="100"></td>
+
+      <td><button type="submit" [routerLink]="['/edit-product/',r._id]">Update</button></td>
+
+      <td><button (click)="deleteProduct(r._id)" type="button">Delete</button></td>
+
+    </tr>
+    
+</table>
+<th><button routerLink="/add-product">Add Product</button></th>
